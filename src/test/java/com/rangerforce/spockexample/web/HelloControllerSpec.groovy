@@ -1,4 +1,4 @@
-package com.rangerforce.spockexample
+package com.rangerforce.spockexample.web
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -8,7 +8,7 @@ import spock.lang.Specification
 
 @AutoConfigureMockMvc
 @WebMvcTest
-class HelloControllerTests extends Specification {
+class HelloControllerSpec extends Specification {
 
     @Autowired
     private MockMvc mvc

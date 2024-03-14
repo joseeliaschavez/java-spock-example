@@ -9,6 +9,9 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
 }
 
 repositories {
@@ -16,27 +19,37 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// SpringBoot
+	implementation 'org.springframework.boot:spring-boot-starter-web:3.2.+'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.2.+'
 
-	implementation 'org.projectlombok:lombok:1.18.30'
+	// Gradle 9.0 compatibility
+	// SpringBoot 3+ has an implicit Jupiter dependency
+	// https://docs.gradle.org/8.6/userguide/upgrading_version_8.html#test_framework_implementation_dependencies
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+	// Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.+'
+	annotationProcessor 'org.projectlombok:lombok:1.18.+'
+
+	// Spock Framework
 	testImplementation 'org.spockframework:spock-core:2.4-M2-groovy-4.0'
 	testImplementation 'org.spockframework:spock-spring:2.4-M2-groovy-4.0'
 }
 
 test {
-	testLogging {
-		events "passed", "failed"
-
-		// set options for log level INFO
-		info {
-			events "started", "passed", "failed"
-			exceptionFormat "short"
-		}
-	}
-}
-
-tasks.named('test') {
 	useJUnitPlatform()
+
+	testLogging {
+		lifecycle {
+			events "passed", "skipped", "failed"
+			exceptionFormat = "full"
+			showCauses = true
+			showExceptions = true
+			showStackTraces = false
+			showStandardStreams = true
+		}
+		info.events = lifecycle.events
+		info.exceptionFormat = lifecycle.exceptionFormat
+	}
 }
