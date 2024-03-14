@@ -8,10 +8,8 @@ import java.util.List;
 
 @RestController
 public class StarFleetShipResource {
-
     @GetMapping("/starships")
     public List<String> getShipNames() {
         return Collections.emptyList(); // TODO implement
     }
-
 }

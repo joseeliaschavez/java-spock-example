@@ -12,7 +12,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WebMvcTest
 class StarFleetShipResourceSpec extends Specification {
-
     @Autowired
     private MockMvc mvc
 
@@ -23,5 +22,4 @@ class StarFleetShipResourceSpec extends Specification {
                 .andExpect(jsonPath("\$", hasSize(3)))
                 .andExpect(jsonPath("\$[*]").value(hasItems(instanceOf(String.class))))
     }
-
 }

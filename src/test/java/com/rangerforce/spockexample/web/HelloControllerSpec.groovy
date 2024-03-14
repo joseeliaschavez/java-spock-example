@@ -9,7 +9,6 @@ import spock.lang.Specification
 @AutoConfigureMockMvc
 @WebMvcTest
 class HelloControllerSpec extends Specification {
-
     @Autowired
     private MockMvc mvc
 
@@ -21,5 +20,4 @@ class HelloControllerSpec extends Specification {
                 .response
                 .contentAsString == "Hello world!"
     }
-
 }
