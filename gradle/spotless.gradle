@@ -9,8 +9,12 @@ spotless {
         // Will refactor your code, but it may break your style: apply it before your formatter
         cleanthat()
 
-        // Formatting rules.
+        // We're using Google's Java formatting rules
+        // Override the indent size to 4 spaces
         googleJavaFormat()
+
+        indentWithTabs(2)
+        indentWithSpaces(4)
 
         formatAnnotations() // fixes formatting of type annotations
 

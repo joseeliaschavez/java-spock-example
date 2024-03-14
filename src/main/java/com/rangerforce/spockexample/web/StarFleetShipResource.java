@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class StarFleetShipResource {
-  @GetMapping("/starships")
-  public List<String> getShipNames() {
-    return Collections.emptyList(); // TODO implement
-  }
+    @GetMapping("/starships")
+    public List<String> getShipNames() {
+        return Collections.emptyList(); // TODO implement
+    }
 }
