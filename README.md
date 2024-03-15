@@ -1,4 +1,6 @@
 # java-spock-example
+![Github Actions Status](https://github.com/joseeliaschavez/java-spock-example/actions/workflows/gradle.yml/badge.svg?branch=develop&event=push)
+
 <img  alt="Spock Logo" src="https://github.com/spockframework/spock/blob/master/docs/images/spock-main-logo.png?raw=true" width="100">
 <img  alt="Spock Logo" src="https://spring.io/img/projects/spring-boot.svg" width="100">
 
