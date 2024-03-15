@@ -40,6 +40,9 @@ dependencies {
 	// Spock Framework
 	testImplementation "org.spockframework:spock-core:${spockVersion}"
 	testImplementation "org.spockframework:spock-spring:${spockVersion}"
+
+	// Spotless workaround for Groovy
+	compileOnly 'org.eclipse.platform:org.eclipse.swt:3.124.100'
 }
 
 test {
