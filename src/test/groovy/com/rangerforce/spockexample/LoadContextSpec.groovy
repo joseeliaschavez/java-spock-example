@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
 
 @SpringBootTest
-class LoadContextTests extends Specification {
+class LoadContextSpec extends Specification {
 
 	@Autowired (required = false)
 	private HelloController helloController
