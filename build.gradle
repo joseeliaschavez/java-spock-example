@@ -1,5 +1,6 @@
 plugins {
 	id 'java'
+	id 'groovy'
 	id 'org.springframework.boot' version '3.2.3'
 	id 'io.spring.dependency-management' version '1.1.4'
 	id "com.diffplug.spotless" version "6.25.0"
@@ -8,7 +9,8 @@ plugins {
 apply from: 'gradle/spotless.gradle'
 
 group = 'com.rangerforce'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
+def spockVersion = '2.4-M2-groovy-4.0'
 
 java {
 	sourceCompatibility = '17'
@@ -36,8 +38,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.+'
 
 	// Spock Framework
-	testImplementation 'org.spockframework:spock-core:2.4-M2-groovy-4.0'
-	testImplementation 'org.spockframework:spock-spring:2.4-M2-groovy-4.0'
+	testImplementation "org.spockframework:spock-core:${spockVersion}"
+	testImplementation "org.spockframework:spock-spring:${spockVersion}"
 }
 
 test {
