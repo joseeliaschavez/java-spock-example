@@ -2,6 +2,7 @@ package com.rangerforce.spockexample.web
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.rangerforce.spockexample.domain.model.Starship
+import com.rangerforce.spockexample.domain.repository.RecordNotFoundException
 import com.rangerforce.spockexample.domain.repository.StarshipsRepository
 import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
@@ -32,7 +33,8 @@ class StarFleetShipResourceSpec extends Specification {
                 "USS Voyager (NCC-74656)",
                 "USS Defiant (NX-74205)"
         ]
-        findByRegistryName(_ as String) >> ussEnterprise
+        findByRegistryName("ncc-1701") >> ussEnterprise
+        findByRegistryName(_ as String) >> { throw new RecordNotFoundException("Not Found") }
     }
 
     def setupSpec() {
@@ -52,7 +54,7 @@ class StarFleetShipResourceSpec extends Specification {
     }
 
     def "when /starship/ncc-1701 is performed then the response has status 200 and content is a starship"() {
-        expect: "Status is 200 and the response is list of strings"
+        expect: "Status is 200 and the response is a starship"
         mvc.perform(get("/starship/ncc-1701")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -63,11 +65,19 @@ class StarFleetShipResourceSpec extends Specification {
     }
 
     def "when /starship/ncc-1701 is performed then the response has status 200 and starship has a crew"() {
-        expect: "Status is 200 and the response is list of strings"
+        expect: "Status is 200 and the response has crew information"
         mvc.perform(get("/starship/ncc-1701")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("\$.crewCount", is(431)))
                 .andExpect(jsonPath("\$.commandCrew", hasSize(7)))
+    }
+
+    def "when /starship/ncc-1864 is performed then the response has status 404"() {
+        given:
+        expect: "Status is 200 and the response is list of strings"
+        mvc.perform(get("/starship/ncc-1864")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound())
     }
 }
