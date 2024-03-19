@@ -1,0 +1,48 @@
+{
+  "name": "USS Enterprise-D (NCC-1701-D)",
+  "shipStatus": "Commissioned",
+  "shipClass": "Galaxy",
+  "crewCount": 907,
+  "commandCrew": [
+    {
+      "name": "Jean-Luc Picard",
+      "rank": "Captain",
+      "title": "Commanding Officer"
+    },
+    {
+      "name": "William Riker",
+      "rank": "Commander",
+      "title": "First Officer"
+    },
+    {
+      "name": "Data",
+      "rank": "Lieutenant Commander",
+      "title": "Second Officer"
+    },
+    {
+      "name": "Beverly Crusher",
+      "rank": "Commander",
+      "title": "Chief Medical Officer"
+    },
+    {
+      "name": "Geordi La Forge",
+      "rank": "Lieutenant Commander",
+      "title": "Chief Engineer"
+    },
+    {
+      "name": "Worf",
+      "rank": "Lieutenant Commander",
+      "title": "Chief of Security"
+    },
+    {
+      "name": "Deanna Troi",
+      "rank": "Lieutenant Commander",
+      "title": "Counselor"
+    },
+    {
+      "name": "Wesley Crusher",
+      "rank": "Ensign",
+      "title": "Acting Ensign"
+    }
+  ]
+}
