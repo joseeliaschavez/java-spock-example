@@ -47,6 +47,8 @@ implemented and their use.
 The [Spock docs](https://spockframework.org/spock/docs/2.3/modules.html#_spring_module) detail use of the 
 `spock-spring` library to integrate Spock with Spring Tests.
 
+NOTE: All Spock spec files should be placed under `src/test/groovy` in order for them to compile and run!
+
 ## References
 
 1. [Spring Boot](https://github.com/spring-projects/spring-boot) 
