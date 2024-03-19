@@ -38,10 +38,8 @@ class StarFleetShipResourceSpec extends Specification {
     }
 
     def setupSpec() {
-        var file = new File("src/test/resources/uss-enterprise-ncc-1701.json")
-        var json = file.text
         var objectMapper = new ObjectMapper()
-        ussEnterprise = objectMapper.readValue(json, Starship.class)
+        ussEnterprise = objectMapper.readValue(new File("src/test/resources/uss-enterprise-ncc-1701.json"), Starship.class)
     }
 
     def "when /starships is performed then the response has status 200 and content is list of strings"() {
