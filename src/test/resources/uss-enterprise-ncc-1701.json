@@ -1,0 +1,43 @@
+{
+  "name": "USS Enterprise (NCC-1701)",
+  "shipStatus": "Commissioned",
+  "shipClass": "Constitution",
+  "crewCount": 431,
+  "commandCrew": [
+    {
+      "name": "James T. Kirk",
+      "rank": "Captain",
+      "title": "Commanding Officer"
+    },
+    {
+      "name": "Spock",
+      "rank": "Commander",
+      "title": "First Officer"
+    },
+    {
+      "name": "Leonard McCoy",
+      "rank": "Lieutenant Commander",
+      "title": "Chief Medical Officer"
+    },
+    {
+      "name": "Montgomery Scott",
+      "rank": "Lieutenant Commander",
+      "title": "Chief Engineer"
+    },
+    {
+      "name": "Hikaru Sulu",
+      "rank": "Lieutenant Commander",
+      "title": "Helmsman"
+    },
+    {
+      "name": "Nyota Uhura",
+      "rank": "Lieutenant Commander",
+      "title": "Communications Officer"
+    },
+    {
+      "name": "Pavel Chekov",
+      "rank": "Ensign",
+      "title": "Navigator"
+    }
+  ]
+}
