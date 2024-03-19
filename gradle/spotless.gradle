@@ -23,7 +23,7 @@ spotless {
 
     groovy {
         target '**/*.groovy' // Specify the files to format (all .groovy files in the project)
-        greclipse("4.6.3") // Use Google Java Format for Groovy code formatting
+        greclipse() // Use Google Java Format for Groovy code formatting
         trimTrailingWhitespace() // Trim trailing whitespace
         indentWithSpaces(4) // Use 4 spaces for indentation
     }
