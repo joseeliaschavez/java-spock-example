@@ -20,4 +20,11 @@ spotless {
 
         licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
     }
+
+    groovy {
+        target '**/*.groovy' // Specify the files to format (all .groovy files in the project)
+        greclipse() // Use Google Java Format for Groovy code formatting
+        trimTrailingWhitespace() // Trim trailing whitespace
+        indentWithSpaces(4) // Use 4 spaces for indentation
+    }
 }
