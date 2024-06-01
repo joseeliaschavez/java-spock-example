@@ -26,7 +26,7 @@ repositories {
 dependencies {
 	// SpringBoot
 	implementation 'org.springframework.boot:spring-boot-starter-web:3.2.+'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.2.+'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.+'
 
 	// Gradle 9.0 compatibility
 	// SpringBoot 3+ has an implicit Jupiter dependency
