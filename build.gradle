@@ -10,7 +10,7 @@ apply from: 'gradle/spotless.gradle'
 
 group = 'com.rangerforce'
 version = '0.0.1'
-def spockVersion = '2.4-M2-groovy-4.0' // Doesn't follow SimVer so using a variable
+def spockVersion = '2.4-M4-groovy-4.0' // Doesn't follow SimVer so using a variable
 
 java {
 	sourceCompatibility = '17'
