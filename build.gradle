@@ -6,11 +6,16 @@ plugins {
 	id "com.diffplug.spotless" version "6.25.0"
 }
 
+dependencyManagement {
+	applyMavenExclusions = false
+}
+
 apply from: 'gradle/spotless.gradle'
 
 group = 'com.rangerforce'
 version = '1.0.0'
 def spockVersion = '2.4-M4-groovy-4.0' // Doesn't follow SimVer so using a variable
+def swt_version = '3.124.100'
 
 java {
 	sourceCompatibility = '17'
@@ -40,6 +45,9 @@ dependencies {
 	// Spock Framework
 	testImplementation "org.spockframework:spock-core:${spockVersion}"
 	testImplementation "org.spockframework:spock-spring:${spockVersion}"
+
+	// Spotless workaround for Groovy
+	compileOnly 'org.eclipse.platform:org.eclipse.swt:3.124.100'
 }
 
 test {
@@ -56,5 +64,27 @@ test {
 		}
 		info.events = lifecycle.events
 		info.exceptionFormat = lifecycle.exceptionFormat
+	}
+}
+
+// Setting value of osgi_platform based on OS value
+def os = System.getProperty("os.name").toLowerCase()
+if (os.contains("win")) {
+	ext.osgi_platform = "win32.win32.x86_64"
+} else if (os.contains("mac")) {
+	ext.osgi_platform = "cocoa.macosx.x86_64"
+} else if (os.contains("nix") || os.contains("nux") || os.contains("aix")) {
+	ext.osgi_platform = "linux"
+} else {
+	ext.osgi_platform = "unknown"
+}
+
+configurations.all {
+	resolutionStrategy {
+		dependencySubstitution {
+			// The maven property ${osgi.platform} is not handled by Gradle
+			// so we replace the dependency, using the osgi platform from the project settings
+			substitute module('org.eclipse.platform:org.eclipse.swt.${osgi.platform}') with module("org.eclipse.platform:org.eclipse.swt.${ext.osgi_platform}:${swt_version}")
+		}
 	}
 }

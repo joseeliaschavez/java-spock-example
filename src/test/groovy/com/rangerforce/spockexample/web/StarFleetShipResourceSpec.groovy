@@ -29,9 +29,9 @@ class StarFleetShipResourceSpec extends Specification {
     @SpringBean
     private StarshipsRepository starshipsRepository = Stub() {
         findAll() >> [
-                "USS Enterprise (NCC-1701)",
-                "USS Voyager (NCC-74656)",
-                "USS Defiant (NX-74205)"
+            "USS Enterprise (NCC-1701)",
+            "USS Voyager (NCC-74656)",
+            "USS Defiant (NX-74205)"
         ]
         findByRegistryName("ncc-1701") >> ussEnterprise
         findByRegistryName(_ as String) >> { throw new RecordNotFoundException("Not Found") }

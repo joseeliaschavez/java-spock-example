@@ -1,6 +1,5 @@
 package com.rangerforce.spockexample.domain.repository
 
-
 import spock.lang.Shared
 import spock.lang.Specification
 

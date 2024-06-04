@@ -8,12 +8,11 @@ import spock.lang.Specification
 @SpringBootTest
 class LoadContextSpec extends Specification {
 
-	@Autowired (required = false)
-	private HelloController helloController
+    @Autowired (required = false)
+    private HelloController helloController
 
-	def "when context is loaded then all expected beans are created"() {
-		expect: "the HelloController is created"
-		helloController
-	}
-
+    def "when context is loaded then all expected beans are created"() {
+        expect: "the HelloController is created"
+        helloController
+    }
 }
